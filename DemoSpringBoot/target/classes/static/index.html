@@ -1,0 +1,68 @@
+<!DOCTYPE html>  
+<html>
+   <head>
+      <title>Angular JS Forms</title>
+     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  		<script src="app.js"></script>
+  		  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+  		 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+  	 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="demo.css">
+  </head>
+     <body>
+     <!--  <h2>AngularJS Sample Application</h2> -->
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         <form name = "studentForm" >  
+         <table style="width:100%"><tr><td align="right"><button class="btn btn-primary" ng-click="add()"> Add</button></td></tr>
+         <tr><td align="right">Search:<input type="text" ng-model="searchText"></table>
+            View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>2</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+        
+         <table  style="width:100%" border="1">
+            <tr>
+               <th  ng-model = "firstName" ng-click="sortData('firstName')"><a href="#">First Name</a> <div ng-class="getSortClass('firstName')"></div></th>
+          
+               <th ng-model = "lastName" ng-click="sortData('lastName')">
+                 <a href="#"> Last Name</a><div ng-class="getSortClass('lastName')"></div>
+               </th>
+               <th ng-model = "email" ng-click="sortData('email')"><a href="#">Email</a>
+              <div ng-class="getSortClass('email')"></div> </th>
+               <th ng-model = "ph" ng-click="sortData('ph')"><a href="#">Ph.no</a>
+              <div ng-class="getSortClass('ph')"></div> </th>
+               <th ng-model = "company" ng-click="sortData('company')"><a href="#">Company</a>
+              <div ng-class="getSortClass('company')"></div> </th>
+               <th ng-model = "action">Action
+               </th> 
+            </tr>
+            <tr ng-repeat="x in values | filter:searchText|orderBy:sortColumn:reverseSort">
+           
+               <td ng-bind="x.firstName" ></td>
+               <td ng-bind="x.lastName" ></td>
+               <td ng-bind="x.email" > <span class="error" ng-show="myform.email.$error.pattern">
+            invalid email!
+        </span></td>
+               <td ng-bind="x.ph" ></td>
+               <td ng-bind="x.company" ></td>
+               <td >
+                  <button class="btn btn-warning" confirmed-click="remove($index)" 
+                     ng-confirm-click="Are you sure?">Remove</button>
+                  <button class="btn btn-primary" ng-click="edit(x)">Edit</button>  
+               </td>
+             </tr>
+
+      </table> 
+   <!--   <ul class="pager">
+       <li>  <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination></li>
+     
+<li class="previous"><span>&larr; Previous</span>
+</li>
+<li class="next"><span>Next &rarr;</span></li> 
+</ul> 
+ -->
+ 
+
+
+   
+          </form>  
+    </div>
+   </body>
+</html>

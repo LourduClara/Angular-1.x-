@@ -1,0 +1,29 @@
+ <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Add</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+        <form name = "addForm" >
+<table >
+           
+            <tr><td >First Name:<input type="text" ng-model = "firstName"  required>
+           </td></tr>
+               <tr><td>
+                  Last Name:<input  type="text"  ng-model = "lastName">
+              </td> </tr>
+              <tr><td >Email:<input type="email" ng-model = "email">
+         <span class="error" ng-show="myform.email.$error.pattern">
+            invalid email!
+        </span></td> </tr>
+              <tr><td>Ph.no:<input type="text"  ng-model = "ph">
+               </td></tr>
+             
+               <tr><td >Company:<input type="text" ng-model = "company">
+              </td> </tr>
+              
+               </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.addData()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.addCancel()">Cancel</button>
+        </div>

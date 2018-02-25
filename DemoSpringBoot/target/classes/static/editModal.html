@@ -1,0 +1,27 @@
+ <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Edit</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+        <form name="editForm">
+<table >
+            <tr><td >First Name:<input type="text" ng-model = "$ctrl.items.firstName">
+               </td></tr>
+               <tr><td
+                ng-model = "lastName">
+                  Last Name:<input type="text" ng-model=$ctrl.items.lastName>
+              </td> </tr>
+              <tr><td ng-model = "email">Email:<input type="text" ng-model=$ctrl.items.email>
+             </td> </tr>
+              <tr><td ng-model = "ph">Ph.no:<input type="text" ng-model=$ctrl.items.ph>
+               </td></tr>
+             
+               <tr><td ng-model = "company">Company:<input type="text" ng-model=$ctrl.items.company>
+              </td> </tr>
+              
+               </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+                    <button class="btn btn-primary"  type="button" ng-click="$ctrl.ok($ctrl.items)">OK</button>
+                    <button class="btn btn-warning"  type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
